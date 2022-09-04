@@ -1,0 +1,34 @@
+@startuml class_diagram
+
+class user{
+    name:String
+    sex:String
+    age:int
+    Password:String
+    Id:int
+}
+
+
+class Readingrecord{
+    janru:String
+    private:Boolean
+    Thinking:String
+    ISBN:String
+    title:String
+    review:int
+}
+
+
+class Ranking{
+    title:String
+    review:int
+    rank:int
+}
+
+' 関係を定義 
+left to right direction
+user "1" --- "0...*" Readingrecord:"▼登録する"
+Readingrecord "10" --- "0...2" Ranking
+
+' umlの終了を宣言
+@enduml
