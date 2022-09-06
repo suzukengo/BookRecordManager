@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
+<%@ page import="beans.User" %>
+<% 
+	User login = (User)session.getAttribute("user_db"); 
+%>
 <div align="left">
-	<a>ログインID:</a></br>
-	<a>氏名:</a></br>
+	<a>ログインID:<%=login.getId() %></a></br>
+	<a>氏名:<%=login.getName() %></a></br>
 	
 </div>
 

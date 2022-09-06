@@ -59,6 +59,26 @@ public class UserManager {
 
 		return user;
 	}
+	
+	public User searchUser2(User user) {
+
+		// RiyoushaDAOオブジェクト生成
+		UserDAO userDAO = new UserDAO();
+
+		// DataBaseへ接続し、コネクションオブジェクトを生成する
+		this.connection = userDAO.createConnection();
+
+		// 検索する
+		user = userDAO.searchUser2(user, this.connection);
+
+		// DataBaseとの接続を切断する
+		userDAO.closeConnection(this.connection);
+
+		// コネクションオブジェクトを破棄する
+		this.connection = null;
+
+		return user;
+	}
 
 	public boolean loginUser(Login login) {
 
@@ -120,6 +140,8 @@ public class UserManager {
 		return user;
 
 	}
+
+
 
 		}
 

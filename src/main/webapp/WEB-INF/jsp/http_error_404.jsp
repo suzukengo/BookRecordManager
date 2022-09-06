@@ -12,7 +12,7 @@
 
 
 
-		<jsp:include page="header3.jsp" />
+		<jsp:include page="/../header3.jsp" />
 
 		<font size="6">申し訳ございません、エラーが発生致しました。</a></font></br>
 

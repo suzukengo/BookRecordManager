@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +24,12 @@
 			</table>
 			<input class="common_button" type="submit" name="submit" value="ログイン" />
 			</br>
+		</form>
+		</br>
+		</br>
+		
+		<form action="./SearchUser3" method="post">
+			<input class="common_button" type="submit" name="submit" value="新規登録" />
 		</form>
 		<a href="./register.jsp">新規登録ボタン</a></font> </br> <font size="6">
 	</div>

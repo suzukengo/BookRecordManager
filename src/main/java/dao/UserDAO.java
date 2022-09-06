@@ -131,6 +131,41 @@ public class UserDAO {
 		} finally {
 		}
 	}
+	
+	public User searchUser2(User user, Connection connection) {
+
+		try {
+			// SQLコマンド
+			String sql = "select MAX(id) as id from user";
+
+			// SQLのコマンドを実行する
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			
+			
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.first()) { // DBに存在した場合
+				user.setId(rs.getInt("id"));
+			} else { // DBに存在しなかった場合
+				user = null; // studentオブジェクトをnullにする
+			}
+
+			// 終了処理
+			stmt.close();
+			rs.close();
+
+			// Studentオブジェクトを返す
+			return user;
+
+		} catch (SQLException e) {
+
+			// エラーが発生した場合、エラーの原因を出力し、nullオブジェクトを返す
+			e.printStackTrace();
+			return null;
+
+		} finally {
+		}
+	}
 
 	public Login loginUser(Login login, Connection connection) {
 		Connection conn = null;

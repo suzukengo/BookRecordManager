@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Login;
+import beans.User;
 import control.UserManager;
 
 @WebServlet("/LoginRiyousha")
@@ -25,6 +27,7 @@ public class LoginRiyousha extends HttpServlet {
 
 		// requestオブジェクトの文字エンコーディングの設定
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		UserManager manager = new UserManager();
 		// requestオブジェクトから登録情報の取り出し
 		Integer id = Integer.valueOf(request.getParameter("id")).intValue();
@@ -35,10 +38,17 @@ public class LoginRiyousha extends HttpServlet {
 		
 		// loginのオブジェクトに情報を格納
 		Login login = new Login(id, Password2);
+		User user = new User();
+		user.setId(id);
+		
+		UserManager manager2 = new UserManager();
+		User user2 = manager2.searchUser(user);
 		
 		boolean result = manager.loginUser(login);
 
 		if (result) {
+			session.setAttribute("user_db",user2);
+			session.setMaxInactiveInterval(180);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/loginfin.jsp");
 			dispatcher.forward(request, response);
 		} else {

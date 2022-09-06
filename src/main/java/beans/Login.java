@@ -1,7 +1,11 @@
 //  自分が格納されているフォルダ名
 package beans;
 
-public class Login {
+import java.io.Serializable;
+
+public class Login implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String pass;
 
