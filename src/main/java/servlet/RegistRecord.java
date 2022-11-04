@@ -77,7 +77,7 @@ public class RegistRecord extends HttpServlet {
 
 		// 成功画面を表示する
 		// System.out.println("OK牧場");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/registkakunin.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/finish.jsp");
 		dispatcher.forward(request, response);
 	}
 	

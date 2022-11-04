@@ -8,7 +8,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 <!DOCTYPE html>
 <html>
 <head>
-<title>社会科ドリル</title>
+<title>変更内容記述ページ</title>
 </head>
 <body bgcolor="#e8f7f0">
 	<div align="center">
@@ -20,7 +20,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 		</p>
 		
 		<p>
-			<font size="6"><a href = crud.jsp>別の記録を更新する。</a></br></font>
+			<font size="6"><a href = crud.jsp style="color:#ff6347;">別の記録を更新する。</a></br></font>
 		</p>
 		<%
 		} else {
@@ -39,6 +39,16 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 				if (list != null && list.size() > 0) {
 				%>
 				<table border="1">
+					<tr>
+						<th>チェック</th>
+						<th>ジャンル</th>
+						<th>公開設定</th>
+						<th>感想</th>
+						<th>ISBN</th>
+						<th>タイトル</th>
+						<th>評価</th>
+						<th>ID</th>
+						</tr>
 					<%
 					for (Record record : list) {
 					%>
@@ -59,7 +69,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 				}
 				%>
 				<%}%>
-				<input type="submit" value="削除" />
+				
 				</form>
 				
 			<form action="./UpdateRecord" method="post">
@@ -81,8 +91,15 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 				 <input	required required type="radio" name="review" value="5"/><font size="3">5</font></br> 
 					</td>
 				</tr>
-			   
-			 	 <input type="submit" value="更新" /></br>
+				<style>
+					.common_button{
+						/*追加*/color: #FFF;
+						padding: 10px 20px;
+						/*変更*/border: none;
+						/*変更*/background: #ff6347;
+					}
+					</style>
+			 	 <input class="common_button" type="submit" value="更新" /></br>
 				 
 		</form>
 	

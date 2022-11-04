@@ -1,26 +1,33 @@
 <%@ page contentType="text/html;charset=UTF-8"
 	import="java.sql.*, javax.naming.*, javax.sql.*, java.text.*"%>
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>社会ドリル</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ID確認</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" rel="stylesheet" >
+
+    <!-- CSSの設定ファイル -->
+    <link rel="stylesheet" href="css/index.css">
+    
 </head>
 
-
-<body bgcolor="#e8f7f0">
-	<jsp:include page="header.jsp" />
-	<div align="center">
-		<h1>あなたのIDは？</h1>
-
-		<form action="./SearchUp" method="post">
-
-			 <font size="6">ID:</font> </br> 
-			 <input	required required type="number" name="id"/> </br>
-				 <input type="submit" value="検索" /></br>
-				 IDは他ユーザとの重複不可</br>
-				 パスワードは大小含む英数字6文字以上</br>
-		</form>
-	</div>
+<body class="text-center">
+ 
+    <main class="form-signin w-100 m-auto">
+        <h1>あなたのIDは？</h1>
+            <form action="./SearchUp" method="post">
+            <div class="card-body">
+            <h1 class="h3 mb-3 fw-normal">ID:</h1>
+                <div class="form-floating">
+                <input required type="number" class="form-control" name="id">
+                <label for="floatingInput">ID</label>
+                </div>
+                
+            </div><input class="common_button"  type="submit" value="検索" /></br>
+            </form>
+    </main>
+    <script src="js/bootstrap.bundle.min.js" ></script>
 </body>
 </html>

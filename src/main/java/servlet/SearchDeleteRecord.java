@@ -51,7 +51,7 @@ public class SearchDeleteRecord extends HttpServlet {
 		// requestオブジェクトにオブジェクトを登録
 		request.setAttribute("list", list);
 		// 情報表示画面を表示する
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/deletekaitou.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/deleterecord.jsp");
 		dispatcher.forward(request, response);
 
 	}

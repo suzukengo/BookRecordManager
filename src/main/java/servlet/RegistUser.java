@@ -41,8 +41,14 @@ public class RegistUser extends HttpServlet {
 		UserManager manager = new UserManager();
 		// requestオブジェクトから登録情報の取り出し
 		Integer Id = Integer.valueOf(request.getParameter("id")).intValue();
-		String Password = request.getParameter("password");
-		String Password2 = manager.SHA2(Password).toString();
+		String Password1 = request.getParameter("password1");
+		String Password12 = request.getParameter("password2");
+
+
+		String Password2=null;
+		if(Password1.equals(Password12)){
+			Password2 = manager.SHA2(Password1).toString();
+		}
 		String Name = request.getParameter("name");
 		Integer Age = Integer.valueOf(request.getParameter("age")).intValue();
 		String Sex = request.getParameter("sex");
@@ -66,9 +72,14 @@ public class RegistUser extends HttpServlet {
 		// 登録
 		manager.registUser(user);
 
-		// 成功画面を表示する
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/registkakunin.jsp");
-		dispatcher.forward(request, response);
+		if(Password1.equals(Password12)){
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/registok.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/fail.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 	
 	 private static String escape(String val) {

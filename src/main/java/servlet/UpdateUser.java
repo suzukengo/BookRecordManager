@@ -70,7 +70,7 @@ public class UpdateUser extends HttpServlet {
 		User user1=manager.updateUser(user);
 		
 		if(user1.getCount()==1) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/updatekakunin.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/updatecheck.jsp");
 			dispatcher.forward(request, response);
 		}else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/fail.jsp");

@@ -75,7 +75,7 @@ public class SearchRecord extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		// 情報表示画面を表示する
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/kaitoushow.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/recordshow.jsp");
 		dispatcher.forward(request, response);
 
 	}

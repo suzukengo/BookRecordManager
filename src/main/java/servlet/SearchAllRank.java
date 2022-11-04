@@ -49,7 +49,7 @@ public class SearchAllRank extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		// 情報表示画面を表示する
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/janrurank.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/janrurankfin.jsp");
 		dispatcher.forward(request, response);
 
 	}

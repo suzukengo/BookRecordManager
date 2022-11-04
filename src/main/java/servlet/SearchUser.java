@@ -45,7 +45,7 @@ public class SearchUser extends HttpServlet {
 		// requestオブジェクトにオブジェクトを登録
 		request.setAttribute("list", user2);
 		// 情報表示画面を表示する
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/registeruser.jsp");
 		dispatcher.forward(request, response);
 
 	}

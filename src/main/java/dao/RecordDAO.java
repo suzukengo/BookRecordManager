@@ -30,27 +30,49 @@ public class RecordDAO {
 	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
 	// データベースのユーザー名 （デフォルトではroot）
-	private final static String USER_NAME = "kengo";
 
+	private final static String USER_NAME = "root";
+	
 	// データベースのユーザーのパスワード (デフォルトでは設定なし)
-	private final static String PASSWORD = "Suzuki1021#";
+	private final static String PASSWORD = "root";
+
+	
+
 	// DockerでMysqlを起動した場合
 	// private final static String PASSWORD = "root";
 
 	// データベースとの接続を行う
 	// データベースの接続情報を持ったConnectionオブジェクトを返す
 	public Connection createConnection() {
-		try {
-			Class.forName(DRIVER_NAME);
-			Connection con = DriverManager.getConnection(DRIVER_URL, USER_NAME, PASSWORD);
-			return con;
-		} catch (ClassNotFoundException e) {
-			System.out.println("Can't Find JDBC Driver.\n");
-		} catch (SQLException e) {
-			System.out.println("Connect Error.\n");
-		}
-		return null;
-	}
+
+		String JAVA_ENV = System.getenv("JAVA_ENV");
+        String DRIVER_URL = "jdbc:mysql://localhost:3306/book_record?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
+
+		if(JAVA_ENV==null){
+             // gradleなどで起動の場合
+            DRIVER_URL = "jdbc:mysql://localhost:3306/book_record?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
+        } else if (JAVA_ENV.equals("production")) {
+        // //     // 本番環境
+             DRIVER_URL = "jdbc:mysql://springwork2022g2_db:3306/book_record?allowPublicKeyRetrieval=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
+         } else if (JAVA_ENV.equals("development")) {
+             // 自分自身のPC内で　docker-compose　立ち上げ
+             DRIVER_URL = "jdbc:mysql://local_springwork2022g2_db:3306/db?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
+         }
+        
+        try {
+            Class.forName(DRIVER_NAME);
+            Connection con = DriverManager.getConnection(DRIVER_URL, USER_NAME, PASSWORD);
+            return con;
+        } catch (ClassNotFoundException e) {
+            System.out.println("Can't Find JDBC Driver.\n");
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+        return null;
+    }
 
 	// Connectionオブジェクトを使って、データベースとの接続を切断する
 	// 引数Connectionオブジェクト
@@ -69,7 +91,7 @@ public class RecordDAO {
 		try {
 
 			// SQLコマンド
-			String sql = "insert into Readingrecord(janru, privacy, thinking,isbn,title,review,id) values(?, ?, ?,?,?,?,?)";
+			String sql = "insert into readingrecord(janru, privacy, thinking,isbn,title,review,id) values(?, ?, ?,?,?,?,?)";
 
 			// SQLコマンドの実行
 			PreparedStatement stmt = connection.prepareStatement(sql);
