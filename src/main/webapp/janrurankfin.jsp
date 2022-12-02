@@ -8,7 +8,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 <!DOCTYPE html>
 <html>
 <head>
-<title>ランキング表示画面</title>
+<title>社会科ドリル</title>
 </head>
 <jsp:include page="headerkai.jsp" />
 <body bgcolor="#e8f7f0">
@@ -35,10 +35,6 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 				if (list != null && list.size() > 0) {
 				%>
 				<table border="1">
-					<th></th>
-					<th>ランキング</th>
-					<th>タイトル</th>
-					<th>評価</th>
 				<%! int count=0 ; %>
 					<%
 					for (Record record : list) {

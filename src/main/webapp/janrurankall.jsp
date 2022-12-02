@@ -8,7 +8,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 <!DOCTYPE html>
 <html>
 <head>
-<title>ジャンル別ランキング</title>
+<title>社会科ドリル</title>
 </head>
 <body bgcolor="#e8f7f0">
 	<div align="center">
@@ -38,10 +38,6 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 					for (Record record : list) {
 					%>
 					<tr>
-						<tr>
-							<th>タイトル</th>
-							<th>評価</th>
-					　　</tr>
 						<td><%=record.getTitle()%></td>
 						<td><%=record.getReview()%></td>
 					</tr>

@@ -8,7 +8,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 <!DOCTYPE html>
 <html>
 <head>
-<title>読書記録削除</title>
+<title>社会科ドリル</title>
 </head>
 <body bgcolor="#e8f7f0">
 	<div align="center">
@@ -38,16 +38,6 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 				if (list != null && list.size() > 0) {
 				%>
 				<table border="1">
-					<tr>
-						<th>チェック</th>
-						<th>ジャンル</th>
-						<th>公開設定</th>
-						<th>感想</th>
-						<th>ISBN</th>
-						<th>タイトル</th>
-						<th>評価</th>
-						<th>ID</th>
-						</tr>
 					<%
 					for (Record record : list) {
 					%>
@@ -76,7 +66,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 						/*変更*/background: #ff6347;
 					}
 					</style>
-				
+				<input class="common_button" type="submit" value="削除" />
 				</form>
 				
 			<form action="./DeleteRecord" method="post">

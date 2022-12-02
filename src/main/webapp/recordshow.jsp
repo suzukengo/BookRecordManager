@@ -8,7 +8,7 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 <!DOCTYPE html>
 <html>
 <head>
-<title>読書記録表示</title>
+<title>社会科ドリル</title>
 </head>
 <body bgcolor="#e8f7f0">
 	<div align="center">
@@ -34,13 +34,6 @@ List<Record> list = (List<Record>) request.getAttribute("list");
 				if (list != null && list.size() > 0) {
 				%>
 				<table border="1">
-					<tr>
-						<th>ジャンル</th>
-						<th>感想</th>
-						<th>ISBN</th>
-						<th>タイトル</th>
-						<th>評価</th>
-						</tr>
 					<%
 					for (Record record : list) {
 					%>

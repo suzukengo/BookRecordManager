@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>読書記録登録画面</title>
+<title>社会ドリル</title>
 </head>
 <body bgcolor="#e8f7f0">
-	
-	<div align="center">
 	<jsp:include page="headerkai.jsp" />
+	<div align="center">
 		<h1>読書記録登録画面</h1>
 		<form action="RegistRecord" method="post">
 			<table style="with: 80%">
@@ -17,17 +16,18 @@
 					<td>ID</td>
 					<td><input required type="number" name="id" /></td>
 				</tr>
+			
 				<tr>
 					<td>題名</td>
 					<td><input required type="text" name="title" /></td>
 				</tr>
 				<tr>
 					<td>評価
-			            <input	required required type="radio" name="review" value="1"/><font size="3">1</font> 
-			            <input	required required type="radio" name="review" value="2"/><font size="3">2</font> 
-				        <input	required required type="radio" name="review" value="3"/><font size="3">3</font> 
-			            <input	required required type="radio" name="review" value="4"/><font size="3">4</font> 
-				        <input	required required type="radio" name="review" value="5"/><font size="3">5</font></br> 
+			 <input	required required type="radio" name="review" value="1"/><font size="3">1</font> 
+			 <input	required required type="radio" name="review" value="2"/><font size="3">2</font> 
+				 <input	required required type="radio" name="review" value="3"/><font size="3">3</font> 
+			 <input	required required type="radio" name="review" value="4"/><font size="3">4</font> 
+				 <input	required required type="radio" name="review" value="5"/><font size="3">5</font></br> 
 					</td>
 				</tr>
 				<tr>
@@ -36,31 +36,36 @@
 				</tr>
 				<tr>
 					<td>ジャンル<select name="janru">
-                        <option value="実用書">実用書</option>
-                        <option value="ビジネス">ビジネス</option>
-                        <option value="芸術">芸術</option>
-                        <option value="児童書">児童書</option>
-                        <option value="医学">医学</option>
-                        <option value="福祉">福祉</option>
-                        <option value="理工書">理工書</option>
-                        <option value="人文書">人文書</option>
-                        <option value="語学">語学</option>
-                        <option value="教育">教育</option>
-                        <option value="情報">情報</option>
-                        <option value="雑誌">雑誌</option>
-                        <option value="コミック">コミック</option>
-                    </select></td>
+<option value="実用書">実用書</option>
+<option value="ビジネス">ビジネス</option>
+<option value="芸術">芸術</option>
+<option value="児童書">児童書</option>
+<option value="医学">医学</option>
+<option value="福祉">福祉</option>
+<option value="理工書">理工書</option>
+<option value="人文書">人文書</option>
+<option value="語学">語学</option>
+<option value="教育">教育</option>
+<option value="情報">情報</option>
+<option value="雑誌">雑誌</option>
+<option value="コミック">コミック</option>
+</select></td>
+					
 				</tr>
 					<td>プライバシー
-			        <input	required required type="radio" name="privacy" value="公開"/><font size="3">公開</font> 
-			        <input	required required type="radio" name="privacy" value="非公開"/><font size="3">非公開</font> 
+			 <input	required required type="radio" name="privacy" value="公開"/><font size="3">公開</font> 
+			 <input	required required type="radio" name="privacy" value="非公開"/><font size="3">非公開</font> 
 				</tr>
 				<tr>
 					<td>ISBN</td>
 					<td><textarea required type="text" name="isbn" /></textarea></td>
+
 				</tr>
+				
+
+
 			</table>
-			注意:感想は200文字以内です。 </br> 
+			注意:問題文は200文字以内です。 </br> 
 			<style>
 				.common_button{
 					/*追加*/color: #FFF;

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>読書記録検索画面</title>
+<title>社会ドリル</title>
 </head>
 
 

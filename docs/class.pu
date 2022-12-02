@@ -11,7 +11,7 @@ class user{
 
 class Readingrecord{
     janru:String
-    private:Boolean
+    privacy:String
     Thinking:String
     ISBN:String
     title:String
@@ -19,16 +19,10 @@ class Readingrecord{
 }
 
 
-class Ranking{
-    title:String
-    review:int
-    rank:int
-}
 
 ' 関係を定義 
 left to right direction
 user "1" --- "0...*" Readingrecord:"▼登録する"
-Readingrecord "10" --- "0...2" Ranking
 
 ' umlの終了を宣言
 @enduml

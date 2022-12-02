@@ -30,29 +30,30 @@ public class UserDAO {
 	// Mysql8.系
 	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
-	private final static String USER_NAME = "root";
+	//private final static String USER_NAME = "root";
+	private final static String USER_NAME = "kengo";
 	
 	// データベースのユーザーのパスワード (デフォルトでは設定なし)
-	private final static String PASSWORD = "root";
+	//private final static String PASSWORD = "root";
+	private final static String PASSWORD = "Suzuki1021#";
 
 
 	// データベースとの接続を行う
 	// データベースの接続情報を持ったConnectionオブジェクトを返す
 	public Connection createConnection() {
-
         String JAVA_ENV = System.getenv("JAVA_ENV");
-        String DRIVER_URL = "jdbc:mysql://localhost:3306/book_record?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
+        String DRIVER_URL = "jdbc:mysql://localhost:3306/db?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
 
-		if(JAVA_ENV==null){
-             // gradleなどで起動の場合
-            DRIVER_URL = "jdbc:mysql://localhost:3306/book_record?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
+        if (JAVA_ENV.equals("development")) {
+            // 自分自身のPC内で　docker-compose　立ち上げ
+            DRIVER_URL = "jdbc:mysql://local_springwork2000g0_db:3306/db?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
         } else if (JAVA_ENV.equals("production")) {
-        // //     // 本番環境
-             DRIVER_URL = "jdbc:mysql://springwork2022g2_db:3306/book_record?allowPublicKeyRetrieval=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
-         } else if (JAVA_ENV.equals("development")) {
-             // 自分自身のPC内で　docker-compose　立ち上げ
-             DRIVER_URL = "jdbc:mysql://local_springwork2022g2_db:3306/db?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
-         }
+            // 本番環境
+            DRIVER_URL = "jdbc:mysql://springwork2000g0_db:3306/db?allowPublicKeyRetrieval=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
+        } else{
+            // gradleなどで起動の場合
+            DRIVER_URL = "jdbc:mysql://localhost:3306/db?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true"; 
+        }
         try {
             Class.forName(DRIVER_NAME);
             Connection con = DriverManager.getConnection(DRIVER_URL, USER_NAME, PASSWORD);
